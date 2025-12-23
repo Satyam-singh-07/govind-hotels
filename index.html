@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Govind Residency - Premium Hotel & Accommodation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0d3c61;
+        --secondary: #c19a5f;
+        --light: #f8f9fa;
+        --dark: #1a1a1a;
+        --gray: #6c757d;
+        --light-gray: #e9ecef;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        background-color: #fff;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        padding: 5px 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled .nav-container {
+        padding: 10px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        left: 0;
+        bottom: -5px;
+        transition: width 0.3s ease;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(
+            rgba(13, 60, 97, 0.8),
+            rgba(13, 60, 97, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 0.5s;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 0.8s;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 1.1s;
+      }
+
+      .btn:hover {
+        background-color: #b08a52;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .whatsapp-btn {
+        background-color: #25d366;
+        margin-left: 15px;
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #1da851;
+      }
+
+      /* Section Styling */
+      section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 3px;
+        background: var(--secondary);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title p {
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-text {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      .about-image {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Rooms Section */
+      .rooms {
+        background-color: var(--light-gray);
+      }
+
+      .rooms-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .room-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.5s ease;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .room-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .room-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .room-card:hover .room-image {
+        transform: scale(1.05);
+      }
+
+      .room-content {
+        padding: 30px;
+      }
+
+      .room-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .room-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .room-feature {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .room-feature i {
+        color: var(--secondary);
+      }
+
+      .room-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .price {
+        font-size: 1.8rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: var(--gray);
+        font-weight: normal;
+      }
+
+      /* Services Section */
+      .services {
+        background-color: var(--light);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(50px);
+        padding: 40px 30px;
+        text-align: center;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        font-size: 1.8rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .service-content p {
+        color: var(--gray);
+      }
+
+      /* Amenities Section */
+      .amenities {
+        background-color: var(--light-gray);
+      }
+
+      .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .amenity-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.3s ease;
+      }
+
+      .amenity-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .amenity-icon {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .amenity-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+
+      /* Testimonials */
+      .testimonials-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+      }
+
+      .testimonials-container {
+        display: flex;
+        transition: transform 0.8s ease-in-out;
+        height: 100%;
+      }
+
+      .testimonial {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        margin: 0 20px;
+        opacity: 0;
+        transform: translateY(50px);
+        flex: 0 0 calc(100% - 40px);
+        min-width: calc(100% - 40px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .testimonial.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .testimonial i {
+        font-size: 2rem;
+        color: var(--secondary);
+        margin-bottom: 20px;
+      }
+
+      .testimonial p {
+        font-style: italic;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .client-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .client-info img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+        border: 3px solid var(--secondary);
+      }
+
+      .client-info h4 {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .client-info p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        font-style: normal;
+      }
+
+      /* Testimonial Navigation */
+      .testimonial-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--primary);
+        transition: all 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-nav:hover {
+        background-color: var(--secondary);
+        color: white;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .testimonial-nav.prev {
+        left: 20px;
+      }
+
+      .testimonial-nav.next {
+        right: 20px;
+      }
+
+      .testimonial-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--light-gray);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background-color: var(--secondary);
+        transform: scale(1.2);
+      }
+
+      .dot:hover {
+        background-color: var(--secondary);
+      }
+
+      /* Contact Section */
+      .contact {
+        background-color: var(--light-gray);
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+      }
+
+      .contact-info {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .contact-info p {
+        margin-bottom: 30px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+      }
+
+      .info-item i {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+
+      .direct-contact {
+        text-align: center;
+        padding: 40px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      .direct-contact h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .direct-contact p {
+        margin-bottom: 30px;
+        color: var(--gray);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        color: white;
+        position: relative;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+        bottom: -8px;
+        left: 0;
+      }
+
+      .footer-col p {
+        color: #aaa;
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--secondary);
+        transform: translateY(-5px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+      }
+
+      .footer-bottom-links a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--secondary);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .about-content,
+        .contact-content {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .rooms-grid {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background-color: white;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-top: 50px;
+          transition: left 0.3s ease;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          z-index: 999;
+        }
+
+        nav ul.active {
+          left: 0;
+        }
+
+        nav ul li {
+          margin: 0 0 30px 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 70px 0;
+        }
+
+        .rooms-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonial-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
+        .testimonial-nav.prev {
+          left: 10px;
+        }
+
+        .testimonial-nav.next {
+          right: 10px;
+        }
+
+        .testimonial {
+          padding: 30px 20px;
+          margin: 0 10px;
+        }
+
+        .footer-content {
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonial {
+          padding: 30px 20px;
+        }
+
+        .direct-contact {
+          padding: 30px 20px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .room-price {
+          flex-direction: column;
+          gap: 15px;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .logo h1 {
+          font-size: 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 1.6rem;
+        }
+
+        .section-title h2 {
+          font-size: 1.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header id="header">
+      <div class="container">
+        <div class="nav-container">
+          <div class="logo">
+            <h1>Govind<span>Residency</span></h1>
+          </div>
+
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <nav>
+            <ul id="navMenu">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#rooms">Rooms</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Luxury Hotel Rooms in Greater Noida</h1>
+        <p>
+          Experience premium comfort and exceptional hospitality at Govind
+          Residency. Perfect for business travelers, tourists, and short stays.
+        </p>
+        <div>
+          <a href="#rooms" class="btn">View Our Rooms</a>
+          <a
+            href="https://wa.me/919312203514?text=Hi%20Govind%20Residency,%20I%20want%20to%20book%20a%20room"
+            class="btn whatsapp-btn"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> Instant Booking
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Govind Residency</h2>
+          <p>
+            A premium hotel offering comfortable accommodations with modern
+            amenities in the heart of Greater Noida.
+          </p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text animate-on-scroll">
+            <h3>Your Comfort, Our Priority</h3>
+            <p>
+              Located in the prime area of Greater Noida, Govind Residency
+              offers well-appointed rooms with modern amenities for both
+              business and leisure travelers.
+            </p>
+            <p>
+              Our hotel features clean, comfortable rooms with attached
+              bathrooms, high-speed Wi-Fi, 24/7 security, and excellent service
+              to ensure a memorable stay.
+            </p>
+            <p>
+              Whether you're visiting for business, tourism, or a short stay, we
+              provide the perfect accommodation with convenient access to local
+              attractions and business centers.
+            </p>
+            <a href="#contact" class="btn">Book Now</a>
+          </div>
+
+          <div class="about-image animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Govind Residency Hotel"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="rooms">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Rooms</h2>
+          <p>
+            Choose from our range of comfortable and well-appointed rooms
+            designed for your comfort.
+          </p>
+        </div>
+
+        <div class="rooms-grid">
+          <!-- Standard Room -->
+          <div class="room-card animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Standard Room"
+              class="room-image"
+            />
+            <div class="room-content">
+              <h3>Standard Room</h3>
+              <p>
+                Comfortable room with essential amenities for a relaxing stay.
+              </p>
+
+              <div class="room-features">
+                <div class="room-feature">
+                  <i class="fas fa-user"></i>
+                  <span>2 Guests</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-bed"></i>
+                  <span>Double Bed</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-tv"></i>
+                  <span>TV</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-wifi"></i>
+                  <span>Free Wi-Fi</span>
+                </div>
+              </div>
+
+              <div class="room-price">
+                <div class="price">₹1,200<span>/night</span></div>
+                <a
+                  href="https://wa.me/919312203514?text=Hi%20Govind%20Residency,%20I%20want%20to%20book%20a%20Standard%20Room"
+                  class="btn"
+                  target="_blank"
+                >
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deluxe Room -->
+          <div class="room-card animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80"
+              alt="Deluxe Room"
+              class="room-image"
+            />
+            <div class="room-content">
+              <h3>Deluxe Room</h3>
+              <p>Spacious room with additional amenities and better view.</p>
+
+              <div class="room-features">
+                <div class="room-feature">
+                  <i class="fas fa-user"></i>
+                  <span>3 Guests</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-bed"></i>
+                  <span>Double Bed + Single</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-tv"></i>
+                  <span>Smart TV</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-snowflake"></i>
+                  <span>AC</span>
+                </div>
+              </div>
+
+              <div class="room-price">
+                <div class="price">₹1,800<span>/night</span></div>
+                <a
+                  href="https://wa.me/919312203514?text=Hi%20Govind%20Residency,%20I%20want%20to%20book%20a%20Deluxe%20Room"
+                  class="btn"
+                  target="_blank"
+                >
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Premium Suite -->
+          <div class="room-card animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Premium Suite"
+              class="room-image"
+            />
+            <div class="room-content">
+              <h3>Premium Suite</h3>
+              <p>Luxurious suite with premium amenities and extra space.</p>
+
+              <div class="room-features">
+                <div class="room-feature">
+                  <i class="fas fa-user"></i>
+                  <span>4 Guests</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-bed"></i>
+                  <span>King Bed + Extra</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-bath"></i>
+                  <span>Attached Bath</span>
+                </div>
+                <div class="room-feature">
+                  <i class="fas fa-utensils"></i>
+                  <span>Breakfast Included</span>
+                </div>
+              </div>
+
+              <div class="room-price">
+                <div class="price">₹2,500<span>/night</span></div>
+                <a
+                  href="https://wa.me/919312203514?text=Hi%20Govind%20Residency,%20I%20want%20to%20book%20a%20Premium%20Suite"
+                  class="btn"
+                  target="_blank"
+                >
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>
+            We offer a range of services to make your stay comfortable and
+            convenient.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="fas fa-concierge-bell"></i>
+            </div>
+            <div class="service-content">
+              <h3>24/7 Reception</h3>
+              <p>
+                Round-the-clock reception service for check-in, check-out, and
+                assistance.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <div class="service-content">
+              <h3>Food Service</h3>
+              <p>
+                Delicious meals available on order. Both vegetarian and
+                non-vegetarian options.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="service-content">
+              <h3>Car Parking</h3>
+              <p>Secure parking space available for guests with vehicles.</p>
+            </div>
+          </div>
+
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="fas fa-snowflake"></i>
+            </div>
+            <div class="service-content">
+              <h3>Air Conditioning</h3>
+              <p>
+                All rooms equipped with air conditioning for year-round comfort.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="service-content">
+              <h3>24/7 Security</h3>
+              <p>
+                CCTV surveillance and security personnel ensure your safety.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="fas fa-wifi"></i>
+            </div>
+            <div class="service-content">
+              <h3>High-Speed Wi-Fi</h3>
+              <p>Free high-speed internet access throughout the hotel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="amenities">
+      <div class="container">
+        <div class="section-title">
+          <h2>Hotel Amenities</h2>
+          <p>Enjoy these amenities during your stay at Govind Residency.</p>
+        </div>
+
+        <div class="amenities-grid">
+          <div class="amenity-item animate-on-scroll">
+            <div class="amenity-icon">
+              <i class="fas fa-tv"></i>
+            </div>
+            <div class="amenity-content">
+              <h4>Cable TV</h4>
+              <p>Entertainment with multiple channels</p>
+            </div>
+          </div>
+
+          <div class="amenity-item animate-on-scroll">
+            <div class="amenity-icon">
+              <i class="fas fa-hot-tub"></i>
+            </div>
+            <div class="amenity-content">
+              <h4>Hot Water</h4>
+              <p>24/7 hot water supply in all rooms</p>
+            </div>
+          </div>
+
+          <div class="amenity-item animate-on-scroll">
+            <div class="amenity-icon">
+              <i class="fas fa-tshirt"></i>
+            </div>
+            <div class="amenity-content">
+              <h4>Laundry Service</h4>
+              <p>Laundry service available on request</p>
+            </div>
+          </div>
+
+          <div class="amenity-item animate-on-scroll">
+            <div class="amenity-icon">
+              <i class="fas fa-broom"></i>
+            </div>
+            <div class="amenity-content">
+              <h4>Daily Housekeeping</h4>
+              <p>Regular cleaning and room service</p>
+            </div>
+          </div>
+
+          <div class="amenity-item animate-on-scroll">
+            <div class="amenity-icon">
+              <i class="fas fa-luggage-cart"></i>
+            </div>
+            <div class="amenity-content">
+              <h4>Luggage Storage</h4>
+              <p>Secure luggage storage facility</p>
+            </div>
+          </div>
+
+          <div class="amenity-item animate-on-scroll">
+            <div class="amenity-icon">
+              <i class="fas fa-first-aid"></i>
+            </div>
+            <div class="amenity-content">
+              <h4>First Aid</h4>
+              <p>Basic first aid kit available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Guest Reviews</h2>
+          <p>
+            See what our guests have to say about their stay at Govind
+            Residency.
+          </p>
+        </div>
+
+        <div class="testimonials-slider">
+          <button class="testimonial-nav prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="testimonials-container">
+            <!-- Testimonial 1 -->
+            <div class="testimonial active">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Excellent hotel with clean rooms and friendly staff. The
+                location is perfect for business travelers. Wi-Fi speed is good
+                and rooms are well-maintained."
+              </p>
+              <div class="client-info">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="Rahul Sharma"
+                />
+                <div>
+                  <h4>Rahul Sharma</h4>
+                  <p>Business Traveler</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Great value for money! Rooms are spacious and clean. The staff
+                is very helpful and the food service is good. Will definitely
+                stay again."
+              </p>
+              <div class="client-info">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  alt="Priya Patel"
+                />
+                <div>
+                  <h4>Priya Patel</h4>
+                  <p>Tourist</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Perfect for short stays. The AC works well, bathrooms are
+                clean, and the bed is comfortable. Good security and convenient
+                location."
+              </p>
+              <div class="client-info">
+                <img
+                  src="https://randomuser.me/api/portraits/men/67.jpg"
+                  alt="Amit Verma"
+                />
+                <div>
+                  <h4>Amit Verma</h4>
+                  <p>Family Traveler</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="testimonial-nav next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <div class="testimonial-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Get in touch for bookings, inquiries, or to check availability.</p>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info animate-on-scroll">
+            <h3>Hotel Information</h3>
+            <p>
+              We're here to help you with your booking and answer any questions.
+            </p>
+
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Address</h4>
+                <p>
+                  CD 225, Govind Residency, Ansal Golf Link -1, 201308 Greater
+                  Noida, India
+                </p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Phone</h4>
+                <p>+91 93122 03514</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>info@govindresidency.com</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Check-in/Check-out</h4>
+                <p>Check-in| Check-out 24/7</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="direct-contact animate-on-scroll">
+            <h3>Instant Booking</h3>
+            <p>
+              Contact us directly via WhatsApp for instant booking confirmation
+              and special offers.
+            </p>
+
+            <a
+              href="https://wa.me/919312203514?text=Hi%20Govind%20Residency,%20I%20want%20to%20book%20a%20room%20-%20please%20share%20availability%20and%20pricing"
+              class="btn whatsapp-btn"
+              target="_blank"
+              style="margin-left: 0; margin-top: 20px; display: inline-block"
+            >
+              <i class="fab fa-whatsapp"></i> Book on WhatsApp
+            </a>
+
+            <p style="margin-top: 30px; font-size: 0.9rem">
+              Quick response guaranteed. Share your dates and room preference
+              for instant quote.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Govind Residency</h3>
+            <p>
+              Premium hotel accommodation in Greater Noida offering comfortable
+              rooms with modern amenities.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#rooms">Rooms</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Our Rooms</h3>
+            <ul class="footer-links">
+              <li><a href="#rooms">Standard Room</a></li>
+              <li><a href="#rooms">Deluxe Room</a></li>
+              <li><a href="#rooms">Premium Suite</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact Info</h3>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> CD 225, Govind Residency,
+                Greater Noida
+              </li>
+              <li><i class="fas fa-phone"></i> +91 93122 03514</li>
+              <li><i class="fas fa-envelope"></i> info@govindresidency.com</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023 Govind Residency Hotel. All Rights Reserved.</p>
+          <div class="footer-bottom-links">
+            <!-- <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms & Conditions</a>
+            <a href="#">Cancellation Policy</a> -->
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navMenu = document.getElementById("navMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        mobileMenuBtn.innerHTML = navMenu.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#navMenu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll animations
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+
+          if (elementPosition < screenPosition) {
+            element.classList.add("visible");
+          }
+        });
+      };
+
+      // Initial check for elements in view
+      window.addEventListener("load", animateOnScroll);
+      window.addEventListener("scroll", animateOnScroll);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Testimonial Slider
+      const testimonialContainer = document.querySelector(
+        ".testimonials-container"
+      );
+      const testimonials = document.querySelectorAll(".testimonial");
+      const dots = document.querySelectorAll(".dot");
+      const prevBtn = document.querySelector(".testimonial-nav.prev");
+      const nextBtn = document.querySelector(".testimonial-nav.next");
+
+      let currentIndex = 0;
+      let slideInterval;
+
+      // Function to show testimonial by index
+      function showTestimonial(index) {
+        testimonials.forEach((testimonial) =>
+          testimonial.classList.remove("active")
+        );
+        dots.forEach((dot) => dot.classList.remove("active"));
+
+        currentIndex = index;
+
+        testimonials[currentIndex].classList.add("active");
+        dots[currentIndex].classList.add("active");
+
+        testimonialContainer.style.transform = `translateX(-${
+          currentIndex * 100
+        }%)`;
+      }
+
+      // Function to show next testimonial
+      function nextTestimonial() {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
+      }
+
+      // Function to show previous testimonial
+      function prevTestimonial() {
+        currentIndex =
+          (currentIndex - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentIndex);
+      }
+
+      // Event listeners for navigation buttons
+      nextBtn.addEventListener("click", () => {
+        nextTestimonial();
+        resetSlideInterval();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        prevTestimonial();
+        resetSlideInterval();
+      });
+
+      // Event listeners for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showTestimonial(index);
+          resetSlideInterval();
+        });
+      });
+
+      // Auto slide function
+      function startSlideInterval() {
+        slideInterval = setInterval(nextTestimonial, 5000);
+      }
+
+      function resetSlideInterval() {
+        clearInterval(slideInterval);
+        startSlideInterval();
+      }
+
+      // Initialize the slider
+      function initTestimonialSlider() {
+        showTestimonial(0);
+        startSlideInterval();
+
+        // Pause auto-slide on hover
+        const slider = document.querySelector(".testimonials-slider");
+        slider.addEventListener("mouseenter", () => {
+          clearInterval(slideInterval);
+        });
+
+        slider.addEventListener("mouseleave", () => {
+          startSlideInterval();
+        });
+
+        // Handle touch events for mobile swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        testimonialContainer.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          clearInterval(slideInterval);
+        });
+
+        testimonialContainer.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+          startSlideInterval();
+        });
+
+        function handleSwipe() {
+          const swipeThreshold = 50;
+          const diff = touchStartX - touchEndX;
+
+          if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+              nextTestimonial();
+            } else {
+              prevTestimonial();
+            }
+          }
+        }
+      }
+
+      // Initialize slider when page loads
+      window.addEventListener("load", initTestimonialSlider);
+    </script>
+  </body>
+</html>

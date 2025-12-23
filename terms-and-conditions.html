@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Conditions - Govind Residency</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reuse the same CSS as main page for header and footer */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0d3c61;
+        --secondary: #c19a5f;
+        --light: #f8f9fa;
+        --dark: #1a1a1a;
+        --gray: #6c757d;
+        --light-gray: #e9ecef;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        background-color: #fff;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        padding: 5px 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled .nav-container {
+        padding: 10px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        left: 0;
+        bottom: -5px;
+        transition: width 0.3s ease;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+      }
+
+      /* Terms Page Specific Styles */
+      .terms-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 150px 0 80px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .terms-header h1 {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+      }
+
+      .terms-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .terms-content {
+        background: white;
+        padding: 60px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        margin-bottom: 100px;
+      }
+
+      .terms-section {
+        margin-bottom: 40px;
+      }
+
+      .terms-section h2 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--secondary);
+        font-size: 1.8rem;
+      }
+
+      .terms-section p {
+        margin-bottom: 20px;
+        color: var(--dark);
+      }
+
+      .terms-section ul {
+        margin-left: 25px;
+        margin-bottom: 20px;
+      }
+
+      .terms-section li {
+        margin-bottom: 10px;
+        color: var(--dark);
+      }
+
+      .terms-section strong {
+        color: var(--primary);
+      }
+
+      .last-updated {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid var(--light-gray);
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        color: white;
+        position: relative;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+        bottom: -8px;
+        left: 0;
+      }
+
+      .footer-col p {
+        color: #aaa;
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--secondary);
+        transform: translateY(-5px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+      }
+
+      .footer-bottom-links a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--secondary);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .terms-content {
+          padding: 40px;
+        }
+
+        .terms-header h1 {
+          font-size: 2.4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background-color: white;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-top: 50px;
+          transition: left 0.3s ease;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          z-index: 999;
+        }
+
+        nav ul.active {
+          left: 0;
+        }
+
+        nav ul li {
+          margin: 0 0 30px 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .terms-header {
+          padding: 130px 0 60px;
+        }
+
+        .terms-header h1 {
+          font-size: 2rem;
+        }
+
+        .terms-content {
+          padding: 30px;
+          margin-bottom: 70px;
+        }
+
+        .terms-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+
+        .terms-header {
+          padding: 120px 0 50px;
+        }
+
+        .terms-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .terms-content {
+          padding: 25px 20px;
+          margin-bottom: 60px;
+        }
+
+        .footer-bottom-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .logo h1 {
+          font-size: 1.5rem;
+        }
+
+        .terms-header h1 {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* Back to Home Button */
+      .back-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .back-home:hover {
+        background-color: #0a2e4a;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Highlight Important Terms */
+      .important-note {
+        background-color: #fff8e1;
+        border-left: 4px solid #ffc107;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 4px;
+      }
+
+      .important-note h4 {
+        color: #ff9800;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header id="header">
+      <div class="container">
+        <div class="nav-container">
+          <div class="logo">
+            <h1>Govind<span>Residency</span></h1>
+          </div>
+
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <nav>
+            <ul id="navMenu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#gallery">Gallery</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Terms Header -->
+    <div class="terms-header">
+      <div class="container">
+        <h1>Terms & Conditions</h1>
+        <p>
+          Please read these terms carefully before booking your stay at Govind
+          Residency.
+        </p>
+      </div>
+    </div>
+
+    <!-- Terms Content -->
+    <div class="container">
+      <div class="terms-content">
+        <div class="important-note">
+          <h4><i class="fas fa-exclamation-triangle"></i> Important Notice</h4>
+          <p>
+            By booking a room or using our services, you agree to be bound by
+            these Terms & Conditions. If you do not agree with any part of these
+            terms, please do not use our services.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By accessing and using the Govind Residency website and services,
+            you accept and agree to be bound by the terms and provision of this
+            agreement. These terms apply to all visitors, users, and others who
+            access or use our services.
+          </p>
+          <p>
+            If you disagree with any part of the terms, you may not access our
+            services. Your continued use of our services will be regarded as
+            acceptance of our terms.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>2. Booking and Reservations</h2>
+          <p>
+            All bookings are subject to availability and confirmation. To make a
+            booking, you must be at least 18 years of age and possess the legal
+            authority to enter into binding contracts.
+          </p>
+          <p>Booking confirmation is subject to:</p>
+          <ul>
+            <li>
+              Availability of the selected room type at the time of booking
+            </li>
+            <li>
+              Receipt of required advance payment (typically one month's rent)
+            </li>
+            <li>
+              Verification of identification documents (Government ID proof
+              required)
+            </li>
+            <li>Completion of resident registration form</li>
+          </ul>
+          <p>We reserve the right to refuse any booking at our discretion.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>3. Payment Terms</h2>
+          <p>
+            Payment terms for accommodation at Govind Residency are as follows:
+          </p>
+          <ul>
+            <li>
+              <strong>Advance Payment:</strong> One month's rent is required as
+              advance payment to confirm your booking
+            </li>
+            <li>
+              <strong>Security Deposit:</strong> A refundable security deposit
+              (typically equivalent to one month's rent) is required upon
+              check-in
+            </li>
+            <li>
+              <strong>Monthly Rent:</strong> Monthly payments are due by the 5th
+              of each month
+            </li>
+            <li>
+              <strong>Late Payment:</strong> Late payments may incur additional
+              charges of ₹100 per day after the due date
+            </li>
+            <li>
+              <strong>Payment Methods:</strong> We accept cash, bank transfer,
+              UPI, and online payments
+            </li>
+            <li>
+              <strong>Security Deposit Refund:</strong> The security deposit is
+              refundable upon check-out after deduction for any damages,
+              outstanding dues, or cleaning charges
+            </li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>4. Cancellation and Refund Policy</h2>
+          <p>Cancellation policies vary based on the type of booking:</p>
+          <ul>
+            <li>
+              <strong>Monthly Stay:</strong> 15 days notice required for
+              cancellation. Advance payment will be refunded minus any days
+              stayed.
+            </li>
+            <li>
+              <strong>Short-term Stay (Less than 30 days):</strong> 7 days
+              notice required for cancellation. 50% refund if cancelled within 7
+              days of check-in date.
+            </li>
+            <li>
+              <strong>No-show:</strong> Full payment may be charged for no-show
+              without prior notice
+            </li>
+            <li>
+              <strong>Early Check-out:</strong> For monthly stays, refund will
+              be provided for unused days minus 15 days notice period charges
+            </li>
+          </ul>
+          <p>
+            Refunds will be processed within 7-10 business days after
+            cancellation approval.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>5. House Rules and Regulations</h2>
+          <p>
+            All residents are expected to follow these house rules to ensure a
+            comfortable living environment for everyone:
+          </p>
+          <ul>
+            <li>
+              <strong>Quiet Hours:</strong> Maintain quiet between 10 PM to 7 AM
+            </li>
+            <li>
+              <strong>Cleanliness:</strong> Maintain cleanliness in personal and
+              common areas. Daily room cleaning is provided
+            </li>
+            <li>
+              <strong>Smoking:</strong> No smoking in rooms or common areas.
+              Designated smoking area available
+            </li>
+            <li>
+              <strong>Visitors:</strong> Visitors must register at reception and
+              leave by 10 PM. Overnight guests require prior approval
+            </li>
+            <li>
+              <strong>Property Care:</strong> Damages to property will be
+              charged accordingly. Report any maintenance issues immediately
+            </li>
+            <li>
+              <strong>Safety:</strong> Do not tamper with fire safety equipment.
+              Follow all safety instructions
+            </li>
+            <li>
+              <strong>Common Areas:</strong> Respect common areas and clean up
+              after use
+            </li>
+            <li>
+              <strong>Prohibited Items:</strong> Illegal substances, weapons,
+              and hazardous materials are strictly prohibited
+            </li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>6. Liability and Responsibility</h2>
+          <p>
+            Govind Residency is not responsible for loss or damage to personal
+            belongings. Residents are advised to:
+          </p>
+          <ul>
+            <li>Keep valuables secure at all times</li>
+            <li>
+              Use the safe deposit facility available at reception for important
+              items
+            </li>
+            <li>Lock rooms when leaving the premises</li>
+            <li>Report any security concerns immediately</li>
+          </ul>
+          <p>
+            We maintain 24/7 security but cannot guarantee absolute security of
+            personal belongings. Residents are responsible for their own
+            property and insurance.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>7. Services and Amenities</h2>
+          <p>Our services include but are not limited to:</p>
+          <ul>
+            <li>Fully-furnished rooms with attached bathrooms</li>
+            <li>High-speed Wi-Fi internet</li>
+            <li>Daily meals (breakfast, lunch, dinner)</li>
+            <li>Regular housekeeping and room cleaning</li>
+            <li>24/7 security and CCTV surveillance</li>
+            <li>Laundry services (charges apply)</li>
+            <li>Electricity backup and air conditioning</li>
+          </ul>
+          <p>
+            While we strive to provide uninterrupted services, we are not liable
+            for temporary disruptions due to maintenance, repairs, or
+            circumstances beyond our control.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>8. Termination of Stay</h2>
+          <p>
+            Govind Residency reserves the right to terminate a resident's stay
+            for the following reasons:
+          </p>
+          <ul>
+            <li>Violation of house rules after warning</li>
+            <li>Non-payment of dues for more than 15 days</li>
+            <li>Illegal activities or disturbance to other residents</li>
+            <li>Damage to property</li>
+            <li>Any behavior deemed inappropriate or unsafe</li>
+          </ul>
+          <p>
+            In case of termination, the resident must vacate within 24 hours of
+            notice. Refunds will be processed as per the cancellation policy.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>9. Changes to Terms</h2>
+          <p>
+            We reserve the right to modify these terms at any time. We will
+            notify residents of any significant changes via email or notice
+            board. Continued use of our services after changes constitutes
+            acceptance of the new terms.
+          </p>
+        </div>
+
+        <div class="terms-section">
+          <h2>10. Contact Information</h2>
+          <p>For any questions regarding these terms, please contact us:</p>
+          <p>
+            <strong>Govind Residency</strong><br />
+            123 Residency Road, City Center<br />
+            Mumbai, Maharashtra 400001<br />
+            Phone: +91 98765 43210<br />
+            Email: info@govindresidency.com<br />
+            Office Hours: 8:00 AM - 10:00 PM, Monday - Sunday
+          </p>
+        </div>
+
+        <div class="last-updated">
+          <p><strong>Last Updated:</strong> December 2023</p>
+        </div>
+
+        <a href="index.html" class="back-home">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Govind Residency</h3>
+            <p>
+              Premium accommodation services with a focus on comfort,
+              convenience, and community since 2010.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#gallery">Gallery</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Our Services</h3>
+            <ul class="footer-links">
+              <li><a href="index.html#services">Fully-Furnished Rooms</a></li>
+              <li><a href="index.html#services">High-Speed Internet</a></li>
+              <li><a href="index.html#services">Nutritious Meals</a></li>
+              <li><a href="index.html#services">24/7 Security</a></li>
+              <li><a href="index.html#services">Housekeeping</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact Info</h3>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> 123 Residency Road, Mumbai
+              </li>
+              <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+              <li><i class="fas fa-envelope"></i> info@govindresidency.com</li>
+              <li><i class="fas fa-clock"></i> 8:00 AM - 10:00 PM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023 Govind Residency. All Rights Reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="privacypolicy.html">Privacy Policy</a>
+            <a href="termsandconditions.html">Terms & Conditions</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navMenu = document.getElementById("navMenu");
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+          mobileMenuBtn.innerHTML = navMenu.classList.contains("active")
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>';
+        });
+      }
+
+      // Close mobile menu when clicking a link
+      if (navMenu) {
+        document.querySelectorAll("#navMenu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            if (mobileMenuBtn) {
+              mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+          });
+        });
+      }
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+
+      if (header) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 100) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+      }
+
+      // Add active class to current page in navigation
+      const currentPage = window.location.pathname.split("/").pop();
+      const navLinks = document.querySelectorAll("nav a");
+
+      navLinks.forEach((link) => {
+        const linkPage = link.getAttribute("href");
+        if (
+          linkPage === currentPage ||
+          (currentPage === "" && linkPage === "index.html")
+        ) {
+          link.style.color = "var(--secondary)";
+          link.style.fontWeight = "600";
+        }
+      });
+    </script>
+  </body>
+</html>
